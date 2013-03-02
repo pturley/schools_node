@@ -1,11 +1,5 @@
-
-#
-# Module dependencies.
-#
-
 express = require('express')
 routes = require('./routes')
-user = require('./routes/user')
 districts = require('./routes/districts')
 http = require('http')
 path = require('path')
@@ -27,7 +21,6 @@ app.configure 'development', ->
   app.use express.errorHandler()
 
 app.get '/', routes.index
-app.get '/users', user.list
 app.get '/districts', districts.index
 app.get '/districts/:id', districts.show
 

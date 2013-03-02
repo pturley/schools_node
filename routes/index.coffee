@@ -1,8 +1,5 @@
 data = require("../data")
-
-# GET home page.
-#
+please = require("../lib/please")
 
 exports.index = (req, res) ->
-  res.render 'index', title: data[0]
-
+  please.sendJSON res, data
