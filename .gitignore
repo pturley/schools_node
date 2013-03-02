@@ -27,3 +27,5 @@
 npm-debug.log
 *.tmproj
 azure_error
+
+node_modules/
