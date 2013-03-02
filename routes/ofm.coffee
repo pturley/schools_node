@@ -1,4 +1,4 @@
-# data = require("../data")
+data = require("../data")
 _ = require('underscore')
 
 exports.uniqueBy = (key) ->
