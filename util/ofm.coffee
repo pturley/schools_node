@@ -48,7 +48,7 @@ exports.by = (id) ->
 
 exports.filter = (get_params) ->
   pre_filtered_data = data
-  (pre_filtered_data = filter_single_param(key, pre_filtered_data, get_params) for key in keys)
+  (pre_filtered_data = filter_single_param(key, pre_filtered_data, get_params) for key in keys when exports.isKeyValid(key))
   pre_filtered_data
 
 filter_single_param = (key, pre_filtered_data, get_params) ->
