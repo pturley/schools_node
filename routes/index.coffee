@@ -1,4 +1,6 @@
+ofm = require("../util/ofm")
 please = require("../util/please")
 
 exports.index = (req, res) ->
-  please.sendJSON res, global['data']
+  data = ofm.filter(req.query)
+  please.sendJSON res, data

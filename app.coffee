@@ -4,8 +4,6 @@ districts = require('./routes/districts')
 http = require('http')
 path = require('path')
 
-global['data'] = require('./data')
-
 app = express()
 
 app.configure ->
