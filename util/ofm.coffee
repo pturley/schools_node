@@ -40,12 +40,6 @@ keys = [
 exports.isKeyValid = (key) ->
   key in keys
 
-exports.uniqueBy = (key) ->
-  _.uniq(row[key] for row in data)
-
-exports.by = (id) ->
-  data[id]
-
 exports.filter = (get_params) ->
   pre_filtered_data = data
   (pre_filtered_data = filter_single_param(key, pre_filtered_data, get_params) for key in keys when exports.isKeyValid(key))

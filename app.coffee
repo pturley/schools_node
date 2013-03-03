@@ -1,6 +1,5 @@
 express = require('express')
 routes = require('./routes')
-districts = require('./routes/districts')
 http = require('http')
 path = require('path')
 
@@ -21,8 +20,6 @@ app.configure 'development', ->
   app.use express.errorHandler()
 
 app.get '/', routes.index
-app.get '/districts', districts.index
-app.get '/districts/:id', districts.show
 
 http.createServer(app).listen app.get('port'), ->
   console.log("Express server listening on port " + app.get('port'))
