@@ -13,12 +13,13 @@ exports.index = (req, res) ->
   please.sendJSON res, data
 
 only_keys_asked = (req, data) ->
-  keys = (key for key in req.query.keys when ofm.isKeyValid(key))
-  if keys and keys.length != 0
-    data = for row in data
-      do (row) ->
-        new_row = {}
-        for key in keys
-          new_row[key] = row[key]
-        new_row
+  if req.query.keys
+    keys = (key for key in req.query.keys when ofm.isKeyValid(key))
+    if keys.length != 0
+      data = for row in data
+        do (row) ->
+          new_row = {}
+          for key in keys
+            new_row[key] = row[key]
+          new_row
   data
