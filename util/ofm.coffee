@@ -37,6 +37,9 @@ keys = [
   "FemaleLearnersPassed40%"
 ]
 
+exports.isKeyValid = (key) ->
+  key in keys
+
 exports.uniqueBy = (key) ->
   _.uniq(row[key] for row in data)
 
