@@ -10,6 +10,9 @@ exports.index = (req, res) ->
   if req.query.unique
     data = _.uniq(data, (row) -> JSON.stringify(row))
 
+  if req.query.sort_by
+    data = _.sortBy(data, (row) -> row[req.query.sort_by])
+
   please.sendJSON res, data
 
 only_keys_asked = (req, data) ->
