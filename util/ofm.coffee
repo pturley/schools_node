@@ -37,6 +37,9 @@ keys = [
   "FemaleLearnersPassed40"
 ]
 
+exports.keys = ->
+  keys
+
 exports.isKeyValid = (key) ->
   key in keys
 

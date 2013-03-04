@@ -1,5 +1,7 @@
 express = require('express')
-routes = require('./routes')
+data_paths = require('./routes/data')
+keys_paths = require('./routes/keys')
+home_page_paths = require('./routes/home_page')
 http = require('http')
 path = require('path')
 
@@ -19,7 +21,9 @@ app.configure ->
 app.configure 'development', ->
   app.use express.errorHandler()
 
-app.get '/', routes.index
+app.get '/', home_page_paths.index
+app.get '/data', data_paths.index
+app.get '/keys', keys_paths.index
 
 http.createServer(app).listen app.get('port'), ->
   console.log("Express server listening on port " + app.get('port'))
