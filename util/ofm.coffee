@@ -42,11 +42,11 @@ exports.isKeyValid = (key) ->
 
 exports.filter = (get_params) ->
   pre_filtered_data = data
-  (pre_filtered_data = filter_single_param(key, pre_filtered_data, get_params) for key in keys when exports.isKeyValid(key))
+  (pre_filtered_data = filter_single_param(key, pre_filtered_data, get_params) for key in keys)
   pre_filtered_data
 
 filter_single_param = (key, pre_filtered_data, get_params) ->
   if get_params[key]
-    (row for row in pre_filtered_data when row[key] == get_params[key])
+    (row for row in pre_filtered_data when row[key] in _.flatten([get_params[key]]))
   else
     pre_filtered_data
