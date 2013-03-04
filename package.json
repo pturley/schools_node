@@ -10,7 +10,7 @@
     "jade": "*",
     "coffee-script": "1.5.x",
     "underscore": "1.4.4",
-    "markdown": "0.4.0"
+    "node-markdown": "0.1.1"
   },
   "engines": {
     "node": "0.8.x",
