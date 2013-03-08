@@ -1,7 +1,4 @@
-_ = require('underscore')
-data = require('../data')
-
-keys = [
+[
   "ExamDate",
   "DistrictName",
   "CentreType",
@@ -36,20 +33,3 @@ keys = [
   "MaleLearnersPassed40",
   "FemaleLearnersPassed40"
 ]
-
-exports.keys = ->
-  keys
-
-exports.isKeyValid = (key) ->
-  key in keys
-
-exports.filter = (get_params) ->
-  pre_filtered_data = data
-  (pre_filtered_data = filter_single_param(key, pre_filtered_data, get_params) for key in keys)
-  pre_filtered_data
-
-filter_single_param = (key, pre_filtered_data, get_params) ->
-  if get_params[key]
-    (row for row in pre_filtered_data when row[key] in _.flatten([get_params[key]]))
-  else
-    pre_filtered_data

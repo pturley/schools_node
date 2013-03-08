@@ -1,5 +1,5 @@
-ofm = require("../util/ofm")
+keys = require("../keys")
 please = require("../util/please")
 
 exports.index = (req, res) ->
-  please.sendJSON res, ofm.keys()
+  please.sendJSON res, keys

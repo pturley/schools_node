@@ -37,3 +37,4 @@ Development Setup
 1. npm install foreman
 1. foreman start
 1. Navigate to localhost:5000 to see this page running locally
+1. `make` to run the tests

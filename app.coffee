@@ -1,5 +1,9 @@
 express = require('express')
-data_paths = require('./routes/data')
+
+DataController = require('./routes/data')
+data = require("./data")
+data_controller = new DataController(data)
+
 keys_paths = require('./routes/keys')
 home_page_paths = require('./routes/home_page')
 http = require('http')
@@ -22,7 +26,8 @@ app.configure 'development', ->
   app.use express.errorHandler()
 
 app.get '/', home_page_paths.index
-app.get '/data', data_paths.index
+app.get '/data', (req, res) ->
+  data_controller.index(req, res)
 app.get '/keys', keys_paths.index
 
 http.createServer(app).listen app.get('port'), ->
