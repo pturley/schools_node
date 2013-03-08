@@ -4,8 +4,13 @@ DataController = require('./routes/data')
 data = require("./data")
 data_controller = new DataController(data)
 
-keys_paths = require('./routes/keys')
-home_page_paths = require('./routes/home_page')
+KeysController = require('./routes/keys')
+keys = require("./keys")
+keys_controller = new KeysController(keys)
+
+HomePageController = require('./routes/home_page')
+home_page_controller = new HomePageController()
+
 http = require('http')
 path = require('path')
 
@@ -25,10 +30,12 @@ app.configure ->
 app.configure 'development', ->
   app.use express.errorHandler()
 
-app.get '/', home_page_paths.index
+app.get '/', (req, res) ->
+  home_page_controller.index(req, res)
 app.get '/data', (req, res) ->
   data_controller.index(req, res)
-app.get '/keys', keys_paths.index
+app.get '/keys', (req, res) ->
+  keys_controller.index(req, res)
 
 http.createServer(app).listen app.get('port'), ->
   console.log("Express server listening on port " + app.get('port'))

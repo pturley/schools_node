@@ -1,5 +1,9 @@
-keys = require("../keys")
 please = require("../util/please")
 
-exports.index = (req, res) ->
-  please.sendJSON res, keys
+class KeysController
+  constructor: (@keys) ->
+
+  index : (req, res) ->
+    please.sendJSON res, @keys
+
+module.exports = KeysController
