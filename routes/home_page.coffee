@@ -1,4 +1,3 @@
-
 class HomePageController
   index: (req, res) ->
     fs = require("fs")
