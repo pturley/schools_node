@@ -1,5 +1,5 @@
 require("should")
-DataController = require("../routes/data_controller")
+DataController = require("../controllers/data_controller")
 
 describe 'DataController', ->
   describe "#index", ->
