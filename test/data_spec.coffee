@@ -19,3 +19,21 @@ describe 'DataController', ->
       controller = new DataController(data, ["akey", "another_key"])
       request  = {query: {keys: ["akey"]}}
       controller.index(request).should.eql [{"akey":"foo"}]
+
+    it "only returns unique records when asked", ->
+      data = [
+        {"akey": "foo"},
+        {"akey": "foo"}
+      ]
+      controller = new DataController(data, ["akey"])
+      request  = {query: {unique: true}}
+      controller.index(request).should.eql [{"akey":"foo"}]
+
+    it "sorts records by a key provided", ->
+      data = [
+        {"akey": "b"},
+        {"akey": "a"}
+      ]
+      controller = new DataController(data, ["akey"])
+      request  = {query: {sort_by: "akey"}}
+      controller.index(request).should.eql [{"akey":"a"}, {"akey":"b"}]
