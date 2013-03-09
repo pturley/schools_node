@@ -3,10 +3,10 @@ express = require('express')
 data = require("./data")
 keys = require("./keys")
 
-DataController = require('./routes/data')
+DataController = require('./routes/data_controller')
 data_controller = new DataController(data, keys)
 
-HomePageController = require('./routes/home_page')
+HomePageController = require('./routes/home_page_controller')
 home_page_controller = new HomePageController()
 
 please = require("./util/please")
