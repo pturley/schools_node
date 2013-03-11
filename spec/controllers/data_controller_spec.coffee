@@ -10,7 +10,7 @@ describe 'DataController', ->
       ]
       controller = new DataController(data, ["akey"])
       request  = {query: {}}
-      controller.index(request).should.eql [{"akey":"foo"}, {"akey":"bar"}]
+      controller.index(request).should.eql data
 
     it "only returns rows asked for with a single value", ->
       data = [
